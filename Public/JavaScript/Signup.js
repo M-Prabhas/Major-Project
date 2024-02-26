@@ -23,11 +23,13 @@ elementsToCheck.forEach(function(element) {
           counterpoint.innerHTML="password length must be between 8 and 21 only";
     }else if(!containsElement){
           counterpoint.innerHTML="password should contain atleast one special character like ?_@#$%";
+    }else if(password != confirm ){
+        counterpoint.innerHTML="both are not matching."
     }else{ 
    // Send the data to the backend
     fetch('/signup', {
         method: 'POST',
-        body: JSON.stringify({ username: username, password: password ,emailID: emailID })
+        body: JSON.stringify({ username: username, password: password ,email: emailID })
     })
     .then(response => {
         if (response.ok) {

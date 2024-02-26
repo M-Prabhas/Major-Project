@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <!-- Load Blockly core -->
+<script src="../node_modules/blockly/blockly_compressed.js"></script>
+<!-- Load the default blocks -->
+<script src="../node_modules/blockly/blocks_compressed.js"></script>
+<!-- Load a generator -->
+<script src="../node_modules/blockly/javascript_compressed.js"></script>
+<!-- Load a python code generator -->
+<script src="../node_modules/blockly/python_compressed.js"></script>
+<!-- Load a message file -->
+<script src="https://unpkg.com/blockly/msg/en.js"></script>
+<link rel="stylesheet" href="/CSS/Dashboard.css">
+</head>
+<body>
+    <div id="blocklyDiv" style="height:100vh; width:75vw"></div>
+    <div id="div2" >
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Warning!</strong> error occurred while sending the code.
+          </div>                   
+        <button class="button" id="mybutton">myfiles</button>
+        <button class="button" onclick="generatecode()">Generate</button>
+        <button class="button" onclick="sendcode()" >Send</button>
+        <div id="codegenerated"></div>
+        <pre>Please click on Generate</pre>
+        </div>
+    </div>
+</body>
+<script src="../Javascript/Dashboard.js"></script>
+</html>
