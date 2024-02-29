@@ -30,6 +30,9 @@ mongoose.connect('mongodb://localhost:27017/clientDB',{
  app.get("/",function(req,res){
     res.sendFile(__dirname+"/HTML/Login.html");
  });
+app.get("/Signup.html", function (req, res) {
+    res.sendFile(__dirname + "/HTML/Signup.html");
+});
 
  app.post("/login", function(req, res) {
     var finduser = req.body.username;
@@ -66,7 +69,7 @@ app.post("/signup",function(req,res){
         // return res.sendStatus(404); // Not Found
     }else{
         bcrypt.hash(password, 10, function(err, bHash) {
-            const newUser = new User({
+            const newUser = new Client({
               email: email,
               username: username,
               password: bHash
