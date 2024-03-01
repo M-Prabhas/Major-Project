@@ -27,26 +27,23 @@ elementsToCheck.forEach(function(element) {
         counterpoint.innerHTML="both are not matching."
     }else{ 
    // Send the data to the backend
-    fetch('/signup', {
-        method: 'POST',
-        body: JSON.stringify({ username: username, password: password ,email: emailID })
-    })
-    .then(response => {
-        if (response.ok) {
-            // Handle successful login
-            console.log('signup successful');
-        } else {
-            // Handle login failure
-            console.error('Signup Failed');
-            // Update the warning message
-            document.getElementById("warning").innerHTML = "userName already Exists";
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        // Update the warning message
-        document.getElementById("warning").innerHTML = "An error occurred. Please try again later.";
-    });
+        // Register Request
+        fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username:username,
+                email: emailID,
+                password:password
+            }),
+        })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+
+        
 }
 });
 
